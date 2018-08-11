@@ -55,4 +55,20 @@ class Response extends AbstractResponse implements RedirectResponseInterface
     {
         return null;
     }
+
+    public function getQueryData()
+    {
+        $orderNumber = null;
+        $authorized = false;
+
+        if(isset($this->data->OrderInformation->OrderNumber)){
+            $orderNumber = (string) $this->data->OrderInformation->OrderNumber;
+        }
+
+        if(isset($this->data->OrderInformation->OrderNumber)){
+            $authorized = (string) $this->data->Summary->Authorized;
+        }
+
+        return compact('orderNumber','authorized');
+    }
 }

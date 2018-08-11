@@ -71,4 +71,9 @@ class Gateway extends AbstractGateway
     {
         return $this->createRequest('\Omnipay\Netaxept\Message\CreditRequest', $parameters);
     }
+
+    public function query(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Netaxept\Message\QueryRequest', $parameters);
+    }
 }
